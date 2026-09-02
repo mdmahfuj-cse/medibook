@@ -40,6 +40,16 @@ const componentRows: GuideRow[] = [
   { name: "Home feature sections", location: "src/components/home/", purpose: "Quick actions and health tips used by HomePage.", editWhen: "Change a home section without editing the full page." },
 ];
 
+const homeOrderRows: GuideRow[] = [
+  { name: "1. Hero and search", location: "src/pages/HomePage.tsx", purpose: "The large opening area: headline, search form, popular filters, trust stats, and service shortcut grids.", editWhen: "Change the top of Home. Move the whole first <section> block to change its position." },
+  { name: "2. Daily health tips", location: "src/components/home/HealthTipsCarousel.tsx", purpose: "Health education carousel rendered immediately after the hero.", editWhen: "Move the <HealthTipsCarousel /> line in HomePage.tsx to place it earlier or later." },
+  { name: "3. Quick actions", location: "src/components/home/QuickActionsSection.tsx", purpose: "Book appointment, prescriptions, and emergency shortcuts rendered after health tips.", editWhen: "Move the <QuickActionsSection /> line in HomePage.tsx to change its position." },
+  { name: "4. Specialties", location: "src/pages/HomePage.tsx", purpose: "Popular medical specialty cards and specialty search links.", editWhen: "Find the section marked SPECIALTIES SECTION and move that entire block." },
+  { name: "5. Popular doctors", location: "src/pages/HomePage.tsx + src/data/mockDoctors.ts", purpose: "Featured doctor cards using the first four entries from MOCK_DOCTORS.", editWhen: "Change layout in HomePage; change doctor content in mockDoctors.ts." },
+  { name: "6. Patient reviews", location: "src/pages/HomePage.tsx + src/data/mockDoctors.ts", purpose: "Patient review and trust content shown lower on the home page.", editWhen: "Find the reviews section in HomePage.tsx and move the complete section." },
+  { name: "7. Clinics and final CTA", location: "src/pages/HomePage.tsx", purpose: "Clinic information and the closing booking call to action.", editWhen: "Move the final home sections near the bottom of HomePage.tsx." },
+];
+
 const storeRows: GuideRow[] = [
   { name: "Routes and UI", location: "src/stores/useUIStore.ts", purpose: "Current route, browser history, timezone, mobile menu, toasts, and saved doctors.", editWhen: "Change navigation or global UI state." },
   { name: "Search", location: "src/stores/useSearchStore.ts", purpose: "Search fields, filters, sorting, and pagination.", editWhen: "Change filter values or search state behavior." },
@@ -107,6 +117,7 @@ export function ComponentGuidePage() {
       </div>
 
       <GuideSection icon={Map} title="Pages and visible sections" description="Use this table when you know which screen or workflow you want to change." rows={pageRows} />
+      <GuideSection icon={Route} title="Home page order and positioning" description="Home sections are rendered from top to bottom inside HomePage.tsx. To reposition a component, move its JSX line or its complete section block in that file." rows={homeOrderRows} />
       <GuideSection icon={Box} title="Shared and feature components" description="Use these files for reusable UI sections. Changes here can affect multiple pages." rows={componentRows} />
       <GuideSection icon={Database} title="State and behavior" description="Use stores when the change affects navigation, saved data, filters, booking rules, or actions." rows={storeRows} />
       <GuideSection icon={FileCode2} title="Data, types, and utilities" description="Use these files when the content model or date and schedule calculations need to change." rows={dataRows} />
