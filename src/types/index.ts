@@ -1,16 +1,16 @@
 export type Specialty =
-  | 'Cardiology'
-  | 'Dermatology'
-  | 'Neurology'
-  | 'Pediatrics'
-  | 'Orthopedics'
-  | 'General Practice'
-  | 'Psychiatry'
-  | 'Ophthalmology'
-  | 'Gynecology'
-  | 'Dentistry'
-  | 'Endocrinology'
-  | 'Gastroenterology';
+  | "Cardiology"
+  | "Dermatology"
+  | "Neurology"
+  | "Pediatrics"
+  | "Orthopedics"
+  | "General Practice"
+  | "Psychiatry"
+  | "Ophthalmology"
+  | "Gynecology"
+  | "Dentistry"
+  | "Endocrinology"
+  | "Gastroenterology";
 
 export interface Clinic {
   id: string;
@@ -29,7 +29,7 @@ export interface Clinic {
 
 export interface Shift {
   start: string; // "09:00"
-  end: string;   // "13:00"
+  end: string; // "13:00"
 }
 
 export interface ScheduleConfig {
@@ -37,7 +37,7 @@ export interface ScheduleConfig {
   shifts: Shift[]; // e.g. [{ start: '09:00', end: '13:00' }, { start: '15:00', end: '18:00' }]
   lunchBreak: {
     start: string; // "13:00"
-    end: string;   // "15:00"
+    end: string; // "15:00"
   };
   slotDurationMinutes: number; // 30
   unavailableDates: string[]; // ['2026-09-01', ...]
@@ -57,13 +57,13 @@ export interface DoctorReview {
 }
 
 export type SortOption =
-  | 'recommended'
-  | 'rating-desc'
-  | 'experience-desc'
-  | 'fee-asc'
-  | 'fee-desc'
-  | 'name-asc'
-  | 'availability-asc';
+  | "recommended"
+  | "rating-desc"
+  | "experience-desc"
+  | "fee-asc"
+  | "fee-desc"
+  | "name-asc"
+  | "availability-asc";
 
 export interface Doctor {
   id: string;
@@ -100,7 +100,7 @@ export interface TimeSlot {
   timezone: string;
 }
 
-export type Gender = 'male' | 'female' | 'non-binary' | 'prefer-not-to-say';
+export type Gender = "male" | "female" | "non-binary" | "prefer-not-to-say";
 
 export interface PatientDetails {
   fullName: string;
@@ -119,7 +119,11 @@ export interface PatientDetails {
   isFirstTime?: boolean;
 }
 
-export type AppointmentStatus = 'upcoming' | 'completed' | 'cancelled' | 'rescheduled';
+export type AppointmentStatus =
+  | "upcoming"
+  | "completed"
+  | "cancelled"
+  | "rescheduled";
 
 export interface Appointment {
   id: string;
@@ -133,12 +137,12 @@ export interface Appointment {
   endTime: string; // "10:00"
   timezone: string;
   patientDetails: PatientDetails;
-  visitType?: 'in_person' | 'telehealth';
+  visitType?: "in_person" | "telehealth";
   consultationFee: number;
   discountAmount?: number;
   promoCode?: string;
-  paymentMethod?: 'clinic' | 'card' | 'hsa' | 'insurance';
-  paymentStatus?: 'paid' | 'pay_at_clinic' | 'pending';
+  paymentMethod?: "clinic" | "card" | "hsa" | "insurance";
+  paymentStatus?: "paid" | "pay_at_clinic" | "pending";
   status: AppointmentStatus;
   createdAt: string;
   updatedAt: string;
@@ -186,9 +190,9 @@ export interface WaitlistEntry {
   email: string;
   phone: string;
   preferredDate: string;
-  preferredTimeSlot?: 'morning' | 'afternoon' | 'evening' | 'any';
+  preferredTimeSlot?: "morning" | "afternoon" | "evening" | "any";
   createdAt: string;
-  status: 'pending' | 'notified';
+  status: "pending" | "notified";
 }
 
 export interface SearchFilters {
@@ -207,20 +211,20 @@ export interface SearchFilters {
 }
 
 export type AppRoute =
-  | { path: '/' }
-  | { path: '/search'; query?: Partial<SearchFilters> }
-  | { path: '/doctors/:id'; id: string }
-  | { path: '/book'; id?: string; preselectedDate?: string }
-  | { path: '/book/:id'; id: string; preselectedDate?: string }
-  | { path: '/appointments'; tab?: 'upcoming' | 'past' | 'cancelled' }
-  | { path: '/dashboard/appointments'; tab?: 'upcoming' | 'past' | 'cancelled' }
-  | { path: '/prescriptions' }
-  | { path: '/dashboard/prescriptions' }
-  | { path: '/telehealth'; appointmentId?: string }
-  | { path: '/emergency' }
-  | { path: '/health-records' }
-  | { path: '/lab-tests' }
-  | { path: '/chamber-tracker'; appointmentId?: string }
-  | { path: '/family-profiles' }
-  | { path: '/insurance' }
-  | { path: '/component-guide' };
+  | { path: "/" }
+  | { path: "/search"; query?: Partial<SearchFilters> }
+  | { path: "/doctors/:id"; id: string }
+  | { path: "/book"; id?: string; preselectedDate?: string }
+  | { path: "/book/:id"; id: string; preselectedDate?: string }
+  | { path: "/appointments"; tab?: "upcoming" | "past" | "cancelled" }
+  | { path: "/dashboard/appointments"; tab?: "upcoming" | "past" | "cancelled" }
+  | { path: "/prescriptions" }
+  | { path: "/dashboard/prescriptions" }
+  | { path: "/telehealth"; appointmentId?: string }
+  | { path: "/emergency" }
+  | { path: "/health-records" }
+  | { path: "/lab-tests" }
+  | { path: "/chamber-tracker"; appointmentId?: string }
+  | { path: "/family-profiles" }
+  | { path: "/insurance" }
+  | { path: "/component-guide" };

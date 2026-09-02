@@ -1,6 +1,14 @@
-import React from 'react';
-import { Heart, ShieldCheck, Clock, MapPin, Phone, Lock, Sparkles } from 'lucide-react';
-import { useUIStore } from '../../stores/useUIStore';
+import React from "react";
+import {
+  Heart,
+  ShieldCheck,
+  Clock,
+  MapPin,
+  Phone,
+  Lock,
+  Sparkles,
+} from "lucide-react";
+import { useUIStore } from "../../stores/useUIStore";
 
 export function Footer() {
   const { navigate } = useUIStore();
@@ -20,7 +28,9 @@ export function Footer() {
               </span>
             </div>
             <p className="text-sm text-[#5F6F65] leading-relaxed max-w-sm">
-              Empowering patients with transparent, friction-free healthcare access. Book verified top-rated specialists, manage appointments, and access digital prescriptions in 60 seconds.
+              Empowering patients with transparent, friction-free healthcare
+              access. Book verified top-rated specialists, manage appointments,
+              and access digital prescriptions in 60 seconds.
             </p>
             <div className="flex flex-wrap items-center gap-3 pt-2">
               <span className="inline-flex items-center gap-1.5 rounded-lg bg-[#C9DABF]/50 px-2.5 py-1 text-xs font-semibold text-[#1C231F]">
@@ -42,7 +52,7 @@ export function Footer() {
             <ul className="space-y-2.5 text-sm">
               <li>
                 <button
-                  onClick={() => navigate({ path: '/search' })}
+                  onClick={() => navigate({ path: "/search" })}
                   className="text-[#5F6F65] hover:text-[#1C231F] transition-colors"
                 >
                   Find Doctors & Clinics
@@ -50,7 +60,12 @@ export function Footer() {
               </li>
               <li>
                 <button
-                  onClick={() => navigate({ path: '/dashboard/appointments', tab: 'upcoming' })}
+                  onClick={() =>
+                    navigate({
+                      path: "/dashboard/appointments",
+                      tab: "upcoming",
+                    })
+                  }
                   className="text-[#5F6F65] hover:text-[#1C231F] transition-colors"
                 >
                   My Appointments
@@ -58,7 +73,7 @@ export function Footer() {
               </li>
               <li>
                 <button
-                  onClick={() => navigate({ path: '/dashboard/prescriptions' })}
+                  onClick={() => navigate({ path: "/dashboard/prescriptions" })}
                   className="text-[#5F6F65] hover:text-[#1C231F] transition-colors"
                 >
                   Digital Prescriptions
@@ -66,7 +81,12 @@ export function Footer() {
               </li>
               <li>
                 <button
-                  onClick={() => navigate({ path: '/search', query: { specialty: 'Cardiology' } })}
+                  onClick={() =>
+                    navigate({
+                      path: "/search",
+                      query: { specialty: "Cardiology" },
+                    })
+                  }
                   className="text-[#5F6F65] hover:text-[#1C231F] transition-colors"
                 >
                   Cardiologists
@@ -74,7 +94,7 @@ export function Footer() {
               </li>
               <li>
                 <button
-                  onClick={() => navigate({ path: '/component-guide' })}
+                  onClick={() => navigate({ path: "/component-guide" })}
                   className="text-[#5F6F65] hover:text-[#1C231F] transition-colors"
                 >
                   Component Guide
@@ -91,7 +111,12 @@ export function Footer() {
             <ul className="space-y-2.5 text-sm">
               <li>
                 <button
-                  onClick={() => navigate({ path: '/search', query: { specialty: 'Dermatology' } })}
+                  onClick={() =>
+                    navigate({
+                      path: "/search",
+                      query: { specialty: "Dermatology" },
+                    })
+                  }
                   className="text-[#5F6F65] hover:text-[#1C231F] transition-colors"
                 >
                   Dermatology
@@ -99,7 +124,12 @@ export function Footer() {
               </li>
               <li>
                 <button
-                  onClick={() => navigate({ path: '/search', query: { specialty: 'General Practice' } })}
+                  onClick={() =>
+                    navigate({
+                      path: "/search",
+                      query: { specialty: "General Practice" },
+                    })
+                  }
                   className="text-[#5F6F65] hover:text-[#1C231F] transition-colors"
                 >
                   General Practice
@@ -107,7 +137,12 @@ export function Footer() {
               </li>
               <li>
                 <button
-                  onClick={() => navigate({ path: '/search', query: { specialty: 'Pediatrics' } })}
+                  onClick={() =>
+                    navigate({
+                      path: "/search",
+                      query: { specialty: "Pediatrics" },
+                    })
+                  }
                   className="text-[#5F6F65] hover:text-[#1C231F] transition-colors"
                 >
                   Pediatrics
@@ -115,7 +150,12 @@ export function Footer() {
               </li>
               <li>
                 <button
-                  onClick={() => navigate({ path: '/search', query: { specialty: 'Psychiatry' } })}
+                  onClick={() =>
+                    navigate({
+                      path: "/search",
+                      query: { specialty: "Psychiatry" },
+                    })
+                  }
                   className="text-[#5F6F65] hover:text-[#1C231F] transition-colors"
                 >
                   Mental Health & Psychiatry
@@ -135,7 +175,9 @@ export function Footer() {
                 Emergency Notice
               </p>
               <p className="text-[11px] text-[#808D7C] leading-normal">
-                If you are experiencing life-threatening symptoms or a medical emergency, call 999 or Shastho Batayon (16263) or visit your nearest hospital emergency room immediately.
+                If you are experiencing life-threatening symptoms or a medical
+                emergency, call 999 or Shastho Batayon (16263) or visit your
+                nearest hospital emergency room immediately.
               </p>
             </div>
           </div>
@@ -143,7 +185,10 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-12 pt-8 border-t border-[#E2E8DF] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#808D7C]">
-          <p>© {new Date().getFullYear()} MediBook Healthcare Platform. All rights reserved.</p>
+          <p>
+            © {new Date().getFullYear()} MediBook Healthcare Platform. All
+            rights reserved.
+          </p>
           <div className="flex items-center gap-6">
             <span>Privacy Policy</span>
             <span>Terms of Clinical Service</span>
