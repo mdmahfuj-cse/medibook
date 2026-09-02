@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Atkinson Hyperlegible', system-ui, sans-serif;
+  --font-serif: 'Atkinson Hyperlegible', system-ui, sans-serif;
+
+  --color-sage-50: #F4F7F2;
+  --color-sage-100: #E7EFE3;
+  --color-sage-200: #C9DABF;
+  --color-sage-300: #B2C6A4;
+  --color-sage-400: #9CA986;
+  --color-sage-500: #808D7C;
+  --color-sage-600: #6B7967;
+  --color-woodland-700: #5F6F65;
+  --color-woodland-800: #46544C;
+  --color-woodland-900: #2B352F;
+  --color-woodland-950: #1C231F;
+
+  --color-canvas: #F7FBFC;
+  --color-canvas-subtle: #EAF5F6;
+  --color-surface: #FFFFFF;
+  --color-border-subtle: #D7E6E8;
+  --color-border-strong: #AFC8CC;
+}
+
+@layer base {
+  :root {
+    --brand-light: #CDECEF;
+    --brand-medium: #67B7C1;
+    --brand-moss: #168292;
+    --brand-dark: #126675;
+    --brand-darkest: #143B43;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #F7FBFC;
+    color: #143B43;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+  }
+
+  /* Custom subtle scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #EAF5F6;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #AFC8CC;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #67B7C1;
+  }
+}
+
+/* Custom interactive utility classes */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(201, 218, 191, 0.45);
+}
+
+.subtle-ring:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px #F7FBFC, 0 0 0 4px #168292;
+}
+
+@layer base {
+  h1, h2, h3, h4 { letter-spacing: 0; }
+  button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

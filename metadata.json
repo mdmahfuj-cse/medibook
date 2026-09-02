@@ -1,0 +1,6 @@
+{
+  "name": "MediBook",
+  "description": "A modern healthcare appointment booking platform to find and book doctors in 60 seconds.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
