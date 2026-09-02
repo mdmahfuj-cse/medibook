@@ -72,6 +72,14 @@ export function Footer() {
                   Cardiologists
                 </button>
               </li>
+              <li>
+                <button
+                  onClick={() => navigate({ path: '/component-guide' })}
+                  className="text-[#5F6F65] hover:text-[#1C231F] transition-colors"
+                >
+                  Component Guide
+                </button>
+              </li>
             </ul>
           </div>
 

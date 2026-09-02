@@ -222,4 +222,5 @@ export type AppRoute =
   | { path: '/lab-tests' }
   | { path: '/chamber-tracker'; appointmentId?: string }
   | { path: '/family-profiles' }
-  | { path: '/insurance' };
+  | { path: '/insurance' }
+  | { path: '/component-guide' };

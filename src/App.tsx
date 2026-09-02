@@ -14,6 +14,7 @@ import { LabTestsPage } from "./pages/LabTestsPage";
 import { ChamberQueueTrackerPage } from "./pages/ChamberQueueTrackerPage";
 import { FamilyProfilesPage } from "./pages/FamilyProfilesPage";
 import { InsuranceClaimsPage } from "./pages/InsuranceClaimsPage";
+import { ComponentGuidePage } from "./pages/ComponentGuidePage";
 import { TelehealthRoom } from "./components/telehealth/TelehealthRoom";
 import { useAppointmentStore } from "./stores/useAppointmentStore";
 import { Button } from "./components/ui/Button";
@@ -104,6 +105,9 @@ export default function App() {
 
       case "/insurance":
         return <InsuranceClaimsPage />;
+
+      case "/component-guide":
+        return <ComponentGuidePage />;
 
       case "/telehealth": {
         const appointmentId =
