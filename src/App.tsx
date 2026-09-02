@@ -1,23 +1,23 @@
-import React, { useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { useUIStore } from './stores/useUIStore';
-import { AppLayout } from './components/layout/AppLayout';
-import { HomePage } from './pages/HomePage';
-import { SearchPage } from './pages/SearchPage';
-import { DoctorProfilePage } from './pages/DoctorProfilePage';
-import { BookingPage } from './pages/BookingPage';
-import { AppointmentsPage } from './pages/AppointmentsPage';
-import { PrescriptionsPage } from './pages/PrescriptionsPage';
-import { EmergencyPage } from './pages/EmergencyPage';
-import { HealthRecordsPage } from './pages/HealthRecordsPage';
-import { LabTestsPage } from './pages/LabTestsPage';
-import { ChamberQueueTrackerPage } from './pages/ChamberQueueTrackerPage';
-import { FamilyProfilesPage } from './pages/FamilyProfilesPage';
-import { InsuranceClaimsPage } from './pages/InsuranceClaimsPage';
-import { TelehealthRoom } from './components/telehealth/TelehealthRoom';
-import { useAppointmentStore } from './stores/useAppointmentStore';
-import { Button } from './components/ui/Button';
-import { Search, Calendar, FileText } from 'lucide-react';
+import React, { useEffect } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { useUIStore } from "./stores/useUIStore";
+import { AppLayout } from "./components/layout/AppLayout";
+import { HomePage } from "./pages/HomePage";
+import { SearchPage } from "./pages/SearchPage";
+import { DoctorProfilePage } from "./pages/DoctorProfilePage";
+import { BookingPage } from "./pages/BookingPage";
+import { AppointmentsPage } from "./pages/AppointmentsPage";
+import { PrescriptionsPage } from "./pages/PrescriptionsPage";
+import { EmergencyPage } from "./pages/EmergencyPage";
+import { HealthRecordsPage } from "./pages/HealthRecordsPage";
+import { LabTestsPage } from "./pages/LabTestsPage";
+import { ChamberQueueTrackerPage } from "./pages/ChamberQueueTrackerPage";
+import { FamilyProfilesPage } from "./pages/FamilyProfilesPage";
+import { InsuranceClaimsPage } from "./pages/InsuranceClaimsPage";
+import { TelehealthRoom } from "./components/telehealth/TelehealthRoom";
+import { useAppointmentStore } from "./stores/useAppointmentStore";
+import { Button } from "./components/ui/Button";
+import { Search, Calendar, FileText } from "lucide-react";
 
 export default function App() {
   const { currentRoute, navigate } = useUIStore();
@@ -31,7 +31,7 @@ export default function App() {
           medibookRoute: currentRoute,
           medibookHistory: [],
         },
-        '',
+        "",
         window.location.href,
       );
     }
@@ -40,7 +40,7 @@ export default function App() {
       const route = event.state?.medibookRoute;
       if (!route) return;
 
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: "smooth" });
       useUIStore.setState({
         currentRoute: route,
         routeHistory: event.state.medibookHistory || [],
@@ -48,62 +48,75 @@ export default function App() {
       });
     };
 
-    window.addEventListener('popstate', handlePopState);
-    return () => window.removeEventListener('popstate', handlePopState);
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
   }, [currentRoute]);
 
   const renderCurrentPage = () => {
     switch (currentRoute.path) {
-      case '/':
+      case "/":
         return <HomePage />;
 
-      case '/search':
+      case "/search":
         return <SearchPage />;
 
-      case '/doctors/:id':
+      case "/doctors/:id":
         return <DoctorProfilePage doctorId={currentRoute.id} />;
 
-      case '/book':
-      case '/book/:id':
-        return <BookingPage doctorId={'id' in currentRoute ? currentRoute.id : undefined} />;
-
-      case '/appointments':
-      case '/dashboard/appointments':
+      case "/book":
+      case "/book/:id":
         return (
-          <AppointmentsPage
-            initialTab={'tab' in currentRoute && currentRoute.tab ? currentRoute.tab : 'upcoming'}
+          <BookingPage
+            doctorId={"id" in currentRoute ? currentRoute.id : undefined}
           />
         );
 
-      case '/prescriptions':
-      case '/dashboard/prescriptions':
+      case "/appointments":
+      case "/dashboard/appointments":
+        return (
+          <AppointmentsPage
+            initialTab={
+              "tab" in currentRoute && currentRoute.tab
+                ? currentRoute.tab
+                : "upcoming"
+            }
+          />
+        );
+
+      case "/prescriptions":
+      case "/dashboard/prescriptions":
         return <PrescriptionsPage />;
 
-      case '/emergency':
+      case "/emergency":
         return <EmergencyPage />;
 
-      case '/health-records':
+      case "/health-records":
         return <HealthRecordsPage />;
 
-      case '/lab-tests':
+      case "/lab-tests":
         return <LabTestsPage />;
 
-      case '/chamber-tracker':
+      case "/chamber-tracker":
         return <ChamberQueueTrackerPage />;
 
-      case '/family-profiles':
+      case "/family-profiles":
         return <FamilyProfilesPage />;
 
-      case '/insurance':
+      case "/insurance":
         return <InsuranceClaimsPage />;
 
-      case '/telehealth': {
-        const appointmentId = 'appointmentId' in currentRoute ? currentRoute.appointmentId : undefined;
-        const targetAppointment = appointments.find((a) => a.id === appointmentId);
+      case "/telehealth": {
+        const appointmentId =
+          "appointmentId" in currentRoute
+            ? currentRoute.appointmentId
+            : undefined;
+        const targetAppointment = appointments.find(
+          (a) => a.id === appointmentId,
+        );
         return (
           <TelehealthRoom
             appointment={targetAppointment}
-            onLeaveCall={() => navigate({ path: '/dashboard/prescriptions' })}
+            onLeaveCall={() => navigate({ path: "/dashboard/prescriptions" })}
           />
         );
       }
@@ -120,10 +133,16 @@ export default function App() {
                 This page is prepared for the upcoming development phase.
               </p>
               <div className="mt-8 flex justify-center gap-3">
-                <Button variant="primary" onClick={() => navigate({ path: '/' })}>
+                <Button
+                  variant="primary"
+                  onClick={() => navigate({ path: "/" })}
+                >
                   Return to Home
                 </Button>
-                <Button variant="outline" onClick={() => navigate({ path: '/search' })}>
+                <Button
+                  variant="outline"
+                  onClick={() => navigate({ path: "/search" })}
+                >
                   Search
                 </Button>
               </div>
@@ -137,7 +156,12 @@ export default function App() {
     <AppLayout>
       <AnimatePresence mode="wait">
         <motion.div
-          key={currentRoute.path + (currentRoute.path === '/doctors/:id' ? (currentRoute as any).id : '')}
+          key={
+            currentRoute.path +
+            (currentRoute.path === "/doctors/:id"
+              ? (currentRoute as any).id
+              : "")
+          }
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -8 }}
