@@ -1,7 +1,7 @@
-import React from 'react';
-import { Navbar } from './Navbar';
-import { Footer } from './Footer';
-import { ToastContainer } from '../ui/ToastContainer';
+import React from "react";
+import { Navbar } from "./Navbar";
+import { Footer } from "./Footer";
+import { ToastContainer } from "../ui/ToastContainer";
 
 export interface AppLayoutProps {
   children: React.ReactNode;

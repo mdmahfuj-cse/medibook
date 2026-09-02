@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion } from 'motion/react';
+import React, { useState } from "react";
+import { motion } from "motion/react";
 import {
   Search,
   MapPin,
@@ -22,17 +22,22 @@ import {
   Heart,
   TestTube,
   Radio,
-} from 'lucide-react';
-import { useUIStore } from '../stores/useUIStore';
-import { useSearchStore } from '../stores/useSearchStore';
-import { useBookingStore } from '../stores/useBookingStore';
-import { MOCK_DOCTORS, SPECIALTIES, MOCK_REVIEWS, CLINICS } from '../data/mockDoctors';
-import { Button } from '../components/ui/Button';
-import { Badge } from '../components/ui/Badge';
-import { formatCurrency } from '../lib/utils';
-import { getSpecialtyIcon } from '../utils/specialtyIcons';
-import { HealthTipsCarousel } from '../components/home/HealthTipsCarousel';
-import { QuickActionsSection } from '../components/home/QuickActionsSection';
+} from "lucide-react";
+import { useUIStore } from "../stores/useUIStore";
+import { useSearchStore } from "../stores/useSearchStore";
+import { useBookingStore } from "../stores/useBookingStore";
+import {
+  MOCK_DOCTORS,
+  SPECIALTIES,
+  MOCK_REVIEWS,
+  CLINICS,
+} from "../data/mockDoctors";
+import { Button } from "../components/ui/Button";
+import { Badge } from "../components/ui/Badge";
+import { formatCurrency } from "../lib/utils";
+import { getSpecialtyIcon } from "../utils/specialtyIcons";
+import { HealthTipsCarousel } from "../components/home/HealthTipsCarousel";
+import { QuickActionsSection } from "../components/home/QuickActionsSection";
 
 export function HomePage() {
   const { navigate } = useUIStore();
@@ -40,9 +45,9 @@ export function HomePage() {
   const { initBooking } = useBookingStore();
 
   // Local hero search state
-  const [searchDocName, setSearchDocName] = useState('');
-  const [selectedSpecialty, setSelectedSpecialtyState] = useState('All');
-  const [selectedLocation, setSelectedLocationState] = useState('All');
+  const [searchDocName, setSearchDocName] = useState("");
+  const [selectedSpecialty, setSelectedSpecialtyState] = useState("All");
+  const [selectedLocation, setSelectedLocationState] = useState("All");
 
   const popularDoctors = MOCK_DOCTORS.slice(0, 4);
 
@@ -52,7 +57,7 @@ export function HomePage() {
     setSpecialty(selectedSpecialty);
     setLocation(selectedLocation);
     navigate({
-      path: '/search',
+      path: "/search",
       query: {
         query: searchDocName,
         specialty: selectedSpecialty,
@@ -64,7 +69,7 @@ export function HomePage() {
   const handleSelectSpecialtyCard = (specName: string) => {
     setSpecialty(specName);
     navigate({
-      path: '/search',
+      path: "/search",
       query: { specialty: specName },
     });
   };
@@ -73,12 +78,12 @@ export function HomePage() {
     const doc = MOCK_DOCTORS.find((d) => d.id === docId);
     if (doc) {
       initBooking(doc);
-      navigate({ path: '/book/:id', id: docId });
+      navigate({ path: "/book/:id", id: docId });
     }
   };
 
   const handleViewProfile = (docId: string) => {
-    navigate({ path: '/doctors/:id', id: docId });
+    navigate({ path: "/doctors/:id", id: docId });
   };
 
   return (
@@ -114,10 +119,10 @@ export function HomePage() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="max-w-2xl text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#143B43] leading-[1.08]"
             >
-              Book a verified doctor in{' '}
+              Book a verified doctor in{" "}
               <span className="text-[#5F6F65] underline decoration-[#C9DABF] decoration-4 underline-offset-8">
                 60 seconds
-              </span>{' '}
+              </span>{" "}
               — zero hassle.
             </motion.h1>
 
@@ -128,7 +133,9 @@ export function HomePage() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="mt-6 max-w-2xl text-base sm:text-lg text-[#37616A] leading-relaxed"
             >
-              Discover board-certified physicians, compare honest patient reviews, view live available slots, and book your in-person or telehealth visit seamlessly.
+              Discover board-certified physicians, compare honest patient
+              reviews, view live available slots, and book your in-person or
+              telehealth visit seamlessly.
             </motion.p>
           </div>
 
@@ -172,7 +179,9 @@ export function HomePage() {
                     <Stethoscope className="absolute left-3.5 h-4 w-4 text-[#808D7C] pointer-events-none" />
                     <select
                       value={selectedSpecialty}
-                      onChange={(e) => setSelectedSpecialtyState(e.target.value)}
+                      onChange={(e) =>
+                        setSelectedSpecialtyState(e.target.value)
+                      }
                       className="w-full appearance-none rounded-xl border border-[#E2E8DF] bg-[#F8FAF7] pl-10 pr-8 py-2.5 text-sm text-[#1C231F] font-medium focus:bg-white focus:border-[#5F6F65] focus:outline-none focus:ring-2 focus:ring-[#5F6F65]/15 transition-all cursor-pointer"
                     >
                       <option value="All">All Specialties</option>
@@ -224,7 +233,12 @@ export function HomePage() {
             {/* Quick Filter Tags */}
             <div className="mt-4 flex flex-wrap items-center justify-center gap-2 text-xs text-[#5F6F65]">
               <span className="font-semibold text-[#1C231F]">Popular:</span>
-              {['Cardiology', 'Dermatology', 'General Practice', 'Pediatrics'].map((tag) => (
+              {[
+                "Cardiology",
+                "Dermatology",
+                "General Practice",
+                "Pediatrics",
+              ].map((tag) => (
                 <button
                   key={tag}
                   type="button"
@@ -240,20 +254,36 @@ export function HomePage() {
           {/* Trust stats row */}
           <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-px overflow-hidden border border-[#AFC8CC] bg-[#AFC8CC] text-left">
             <div className="bg-white p-4">
-              <p className="font-serif text-3xl font-bold text-[#1C231F]">100%</p>
-              <p className="text-xs font-semibold text-[#5F6F65] mt-1">Verified Medical Credentials</p>
+              <p className="font-serif text-3xl font-bold text-[#1C231F]">
+                100%
+              </p>
+              <p className="text-xs font-semibold text-[#5F6F65] mt-1">
+                Verified Medical Credentials
+              </p>
             </div>
             <div className="bg-white p-4">
-              <p className="font-serif text-3xl font-bold text-[#1C231F]">4.95 / 5</p>
-              <p className="text-xs font-semibold text-[#5F6F65] mt-1">Average Patient Satisfaction</p>
+              <p className="font-serif text-3xl font-bold text-[#1C231F]">
+                4.95 / 5
+              </p>
+              <p className="text-xs font-semibold text-[#5F6F65] mt-1">
+                Average Patient Satisfaction
+              </p>
             </div>
             <div className="bg-white p-4">
-              <p className="font-serif text-3xl font-bold text-[#1C231F]">0 min</p>
-              <p className="text-xs font-semibold text-[#5F6F65] mt-1">Hold Music or Call Waiting</p>
+              <p className="font-serif text-3xl font-bold text-[#1C231F]">
+                0 min
+              </p>
+              <p className="text-xs font-semibold text-[#5F6F65] mt-1">
+                Hold Music or Call Waiting
+              </p>
             </div>
             <div className="bg-white p-4">
-              <p className="font-serif text-3xl font-bold text-[#1C231F]">60 Sec</p>
-              <p className="text-xs font-semibold text-[#5F6F65] mt-1">Average Booking Completion</p>
+              <p className="font-serif text-3xl font-bold text-[#1C231F]">
+                60 Sec
+              </p>
+              <p className="text-xs font-semibold text-[#5F6F65] mt-1">
+                Average Booking Completion
+              </p>
             </div>
           </div>
 
@@ -262,7 +292,7 @@ export function HomePage() {
             {/* Emergency & Ambulance Dispatch */}
             <button
               type="button"
-              onClick={() => navigate({ path: '/emergency' })}
+              onClick={() => navigate({ path: "/emergency" })}
               className="group flex items-start gap-4 rounded-3xl border-2 border-red-200 bg-red-50/70 p-5 text-left transition-all hover:bg-red-50 hover:border-red-400 hover:shadow-lg cursor-pointer"
             >
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-red-600 text-white shrink-0 group-hover:scale-105 transition-transform shadow-md">
@@ -270,11 +300,14 @@ export function HomePage() {
               </div>
               <div className="space-y-1">
                 <div className="flex items-center gap-2">
-                  <span className="font-bold text-sm text-red-950">24/7 SOS & Ambulance</span>
+                  <span className="font-bold text-sm text-red-950">
+                    24/7 SOS & Ambulance
+                  </span>
                   <span className="flex h-2 w-2 rounded-full bg-red-600 animate-ping" />
                 </div>
                 <p className="text-xs text-red-800 leading-snug">
-                  GPS-tracked ICU ambulances, 999 hotline, blood donor registry, and live hospital ICU bed tracker.
+                  GPS-tracked ICU ambulances, 999 hotline, blood donor registry,
+                  and live hospital ICU bed tracker.
                 </p>
                 <span className="inline-flex items-center gap-1 text-[11px] font-bold text-red-700 pt-1 group-hover:underline">
                   Emergency Hub <ArrowRight className="h-3 w-3" />
@@ -285,7 +318,7 @@ export function HomePage() {
             {/* Instant Telehealth Video Room */}
             <button
               type="button"
-              onClick={() => navigate({ path: '/telehealth' })}
+              onClick={() => navigate({ path: "/telehealth" })}
               className="group flex items-start gap-4 rounded-3xl border border-[#C4CFC0] bg-white p-5 text-left transition-all hover:border-[#5F6F65] hover:shadow-lg cursor-pointer"
             >
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-600 text-white shrink-0 group-hover:scale-105 transition-transform shadow-md">
@@ -293,13 +326,19 @@ export function HomePage() {
               </div>
               <div className="space-y-1">
                 <div className="flex items-center gap-2">
-                  <span className="font-bold text-sm text-[#1C231F]">Live Video Consultation</span>
-                  <Badge variant="outline" className="text-[10px] text-blue-700 border-blue-300 bg-blue-50">
+                  <span className="font-bold text-sm text-[#1C231F]">
+                    Live Video Consultation
+                  </span>
+                  <Badge
+                    variant="outline"
+                    className="text-[10px] text-blue-700 border-blue-300 bg-blue-50"
+                  >
                     HD Telehealth
                   </Badge>
                 </div>
                 <p className="text-xs text-[#5F6F65] leading-snug">
-                  Real-time encrypted video room with in-call vitals monitoring, doctor chat, and live e-Rx writing.
+                  Real-time encrypted video room with in-call vitals monitoring,
+                  doctor chat, and live e-Rx writing.
                 </p>
                 <span className="inline-flex items-center gap-1 text-[11px] font-bold text-blue-700 pt-1 group-hover:underline">
                   Launch Video Suite <ArrowRight className="h-3 w-3" />
@@ -310,7 +349,7 @@ export function HomePage() {
             {/* Personal Health Vault & Vitals */}
             <button
               type="button"
-              onClick={() => navigate({ path: '/health-records' })}
+              onClick={() => navigate({ path: "/health-records" })}
               className="group flex items-start gap-4 rounded-3xl border border-[#C4CFC0] bg-white p-5 text-left transition-all hover:border-[#5F6F65] hover:shadow-lg cursor-pointer"
             >
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#5F6F65] text-white shrink-0 group-hover:scale-105 transition-transform shadow-md">
@@ -318,13 +357,19 @@ export function HomePage() {
               </div>
               <div className="space-y-1">
                 <div className="flex items-center gap-2">
-                  <span className="font-bold text-sm text-[#1C231F]">Patient Health Vault</span>
-                  <Badge variant="outline" className="text-[10px] text-emerald-800 border-emerald-300 bg-emerald-50">
+                  <span className="font-bold text-sm text-[#1C231F]">
+                    Patient Health Vault
+                  </span>
+                  <Badge
+                    variant="outline"
+                    className="text-[10px] text-emerald-800 border-emerald-300 bg-emerald-50"
+                  >
                     EHR
                   </Badge>
                 </div>
                 <p className="text-xs text-[#5F6F65] leading-snug">
-                  Track BP & glucose biomarkers, archive diagnostic lab PDFs, and generate your Emergency Medical ID.
+                  Track BP & glucose biomarkers, archive diagnostic lab PDFs,
+                  and generate your Emergency Medical ID.
                 </p>
                 <span className="inline-flex items-center gap-1 text-[11px] font-bold text-[#5F6F65] pt-1 group-hover:underline">
                   Open Health Vault <ArrowRight className="h-3 w-3" />
@@ -338,7 +383,7 @@ export function HomePage() {
             {/* 1. Diagnostic Lab Tests */}
             <button
               type="button"
-              onClick={() => navigate({ path: '/lab-tests' })}
+              onClick={() => navigate({ path: "/lab-tests" })}
               className="group flex flex-col justify-between rounded-3xl border border-[#C4CFC0] bg-white p-5 text-left transition-all hover:border-[#5F6F65] hover:shadow-md cursor-pointer"
             >
               <div>
@@ -346,13 +391,19 @@ export function HomePage() {
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-600 text-white shadow-xs group-hover:scale-105 transition-transform">
                     <TestTube className="h-5 w-5" />
                   </div>
-                  <Badge variant="outline" className="text-[10px] text-purple-700 border-purple-300 bg-purple-50">
+                  <Badge
+                    variant="outline"
+                    className="text-[10px] text-purple-700 border-purple-300 bg-purple-50"
+                  >
                     Home Sample
                   </Badge>
                 </div>
-                <h4 className="font-bold text-sm text-[#1C231F]">Diagnostic Lab Tests</h4>
+                <h4 className="font-bold text-sm text-[#1C231F]">
+                  Diagnostic Lab Tests
+                </h4>
                 <p className="text-xs text-[#5F6F65] mt-1 leading-snug">
-                  Pathology packages from Popular, Ibn Sina & Labaid with home phlebotomist collection.
+                  Pathology packages from Popular, Ibn Sina & Labaid with home
+                  phlebotomist collection.
                 </p>
               </div>
               <span className="inline-flex items-center gap-1 text-[11px] font-bold text-purple-700 pt-3 group-hover:underline">
@@ -363,7 +414,7 @@ export function HomePage() {
             {/* 2. Live Chamber Queue Tracker */}
             <button
               type="button"
-              onClick={() => navigate({ path: '/chamber-tracker' })}
+              onClick={() => navigate({ path: "/chamber-tracker" })}
               className="group flex flex-col justify-between rounded-3xl border border-[#C4CFC0] bg-white p-5 text-left transition-all hover:border-emerald-600 hover:shadow-md cursor-pointer"
             >
               <div>
@@ -376,9 +427,12 @@ export function HomePage() {
                     Live Serial
                   </span>
                 </div>
-                <h4 className="font-bold text-sm text-[#1C231F]">Chamber Queue Tracker</h4>
+                <h4 className="font-bold text-sm text-[#1C231F]">
+                  Chamber Queue Tracker
+                </h4>
                 <p className="text-xs text-[#5F6F65] mt-1 leading-snug">
-                  Monitor your live OPD doctor token in real time with delay alerts and digital gate passes.
+                  Monitor your live OPD doctor token in real time with delay
+                  alerts and digital gate passes.
                 </p>
               </div>
               <span className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-800 pt-3 group-hover:underline">
@@ -389,7 +443,7 @@ export function HomePage() {
             {/* 3. Family Health Profiles */}
             <button
               type="button"
-              onClick={() => navigate({ path: '/family-profiles' })}
+              onClick={() => navigate({ path: "/family-profiles" })}
               className="group flex flex-col justify-between rounded-3xl border border-[#C4CFC0] bg-white p-5 text-left transition-all hover:border-[#5F6F65] hover:shadow-md cursor-pointer"
             >
               <div>
@@ -401,9 +455,12 @@ export function HomePage() {
                     Multi-Patient
                   </Badge>
                 </div>
-                <h4 className="font-bold text-sm text-[#1C231F]">Family Health Profiles</h4>
+                <h4 className="font-bold text-sm text-[#1C231F]">
+                  Family Health Profiles
+                </h4>
                 <p className="text-xs text-[#5F6F65] mt-1 leading-snug">
-                  Manage medical histories, chronic illnesses, and drug allergies for your parents & children.
+                  Manage medical histories, chronic illnesses, and drug
+                  allergies for your parents & children.
                 </p>
               </div>
               <span className="inline-flex items-center gap-1 text-[11px] font-bold text-[#5F6F65] pt-3 group-hover:underline">
@@ -414,7 +471,7 @@ export function HomePage() {
             {/* 4. Health Insurance & Takaful */}
             <button
               type="button"
-              onClick={() => navigate({ path: '/insurance' })}
+              onClick={() => navigate({ path: "/insurance" })}
               className="group flex flex-col justify-between rounded-3xl border border-[#C4CFC0] bg-white p-5 text-left transition-all hover:border-[#5F6F65] hover:shadow-md cursor-pointer"
             >
               <div>
@@ -422,13 +479,19 @@ export function HomePage() {
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-700 text-white shadow-xs group-hover:scale-105 transition-transform">
                     <ShieldCheck className="h-5 w-5" />
                   </div>
-                  <Badge variant="outline" className="text-[10px] text-amber-800 border-amber-300 bg-amber-50">
+                  <Badge
+                    variant="outline"
+                    className="text-[10px] text-amber-800 border-amber-300 bg-amber-50"
+                  >
                     Cashless OPD
                   </Badge>
                 </div>
-                <h4 className="font-bold text-sm text-[#1C231F]">Insurance & Claims Hub</h4>
+                <h4 className="font-bold text-sm text-[#1C231F]">
+                  Insurance & Claims Hub
+                </h4>
                 <p className="text-xs text-[#5F6F65] mt-1 leading-snug">
-                  Check corporate policy limits and submit paperless medical reimbursement claims.
+                  Check corporate policy limits and submit paperless medical
+                  reimbursement claims.
                 </p>
               </div>
               <span className="inline-flex items-center gap-1 text-[11px] font-bold text-amber-800 pt-3 group-hover:underline">
@@ -462,14 +525,15 @@ export function HomePage() {
               Explore by Medical Specialty
             </h2>
             <p className="text-sm text-[#5F6F65] mt-1">
-              Connect with certified specialists tailored to your precise healthcare needs.
+              Connect with certified specialists tailored to your precise
+              healthcare needs.
             </p>
           </div>
 
           <Button
             variant="ghost"
             size="sm"
-            onClick={() => navigate({ path: '/search' })}
+            onClick={() => navigate({ path: "/search" })}
             rightIcon={<ArrowRight className="h-4 w-4" />}
           >
             Browse All 12 Specialties
@@ -515,14 +579,15 @@ export function HomePage() {
               Recommended Physicians
             </h2>
             <p className="text-sm text-[#5F6F65] mt-1">
-              Top-reviewed doctors with immediate appointment slots available this week.
+              Top-reviewed doctors with immediate appointment slots available
+              this week.
             </p>
           </div>
 
           <Button
             variant="outline"
             size="sm"
-            onClick={() => navigate({ path: '/search' })}
+            onClick={() => navigate({ path: "/search" })}
             rightIcon={<ArrowRight className="h-4 w-4" />}
           >
             View All Doctors
@@ -549,7 +614,9 @@ export function HomePage() {
                   <div className="absolute top-2.5 right-2.5 flex items-center gap-1 rounded-full bg-white/95 px-2.5 py-0.5 text-xs font-bold text-[#1C231F] shadow-xs backdrop-blur-xs">
                     <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
                     <span>{doc.rating.toFixed(2)}</span>
-                    <span className="text-[10px] text-[#808D7C]">({doc.reviewCount})</span>
+                    <span className="text-[10px] text-[#808D7C]">
+                      ({doc.reviewCount})
+                    </span>
                   </div>
                   {doc.acceptingNewPatients && (
                     <div className="absolute bottom-2.5 left-2.5 flex items-center gap-1 rounded-md bg-[#5F6F65] px-2 py-0.5 text-[10px] font-semibold text-white">
@@ -565,7 +632,9 @@ export function HomePage() {
                     <span className="text-xs font-semibold uppercase tracking-wider text-[#5F6F65]">
                       {doc.specialty}
                     </span>
-                    <span className="text-xs text-[#808D7C]">{doc.experienceYears}y exp</span>
+                    <span className="text-xs text-[#808D7C]">
+                      {doc.experienceYears}y exp
+                    </span>
                   </div>
 
                   <h3
@@ -581,7 +650,9 @@ export function HomePage() {
                   </p>
 
                   <div className="pt-2 flex items-center justify-between border-t border-[#E2E8DF] mt-3">
-                    <span className="text-xs text-[#5F6F65]">Consultation fee:</span>
+                    <span className="text-xs text-[#5F6F65]">
+                      Consultation fee:
+                    </span>
                     <span className="text-sm font-bold text-[#1C231F]">
                       {formatCurrency(doc.consultationFee)}
                     </span>
@@ -626,7 +697,8 @@ export function HomePage() {
               How MediBook Works in 3 Simple Steps
             </h2>
             <p className="text-sm text-[#5F6F65] mt-2">
-              Designed to eliminate wait times and put you in control of your clinical care.
+              Designed to eliminate wait times and put you in control of your
+              clinical care.
             </p>
           </div>
 
@@ -637,9 +709,12 @@ export function HomePage() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#5F6F65] text-white font-serif text-xl font-bold mb-5">
                   1
                 </div>
-                <h3 className="text-lg font-bold text-[#1C231F]">Discover Verified Specialists</h3>
+                <h3 className="text-lg font-bold text-[#1C231F]">
+                  Discover Verified Specialists
+                </h3>
                 <p className="text-xs sm:text-sm text-[#5F6F65] mt-2 leading-relaxed">
-                  Search by medical condition, specialty, or clinic. Filter by consultation fee, patient ratings, and hospital affiliation.
+                  Search by medical condition, specialty, or clinic. Filter by
+                  consultation fee, patient ratings, and hospital affiliation.
                 </p>
               </div>
               <div className="mt-6 pt-4 border-t border-[#E2E8DF] flex items-center gap-2 text-xs font-medium text-[#5F6F65]">
@@ -654,9 +729,13 @@ export function HomePage() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#9CA986] text-white font-serif text-xl font-bold mb-5">
                   2
                 </div>
-                <h3 className="text-lg font-bold text-[#1C231F]">Select Timezone-Aware Slot</h3>
+                <h3 className="text-lg font-bold text-[#1C231F]">
+                  Select Timezone-Aware Slot
+                </h3>
                 <p className="text-xs sm:text-sm text-[#5F6F65] mt-2 leading-relaxed">
-                  Our live schedule engine calculates active shifts, breaks, and buffer intervals. Pick the exact 30-minute slot that fits your schedule.
+                  Our live schedule engine calculates active shifts, breaks, and
+                  buffer intervals. Pick the exact 30-minute slot that fits your
+                  schedule.
                 </p>
               </div>
               <div className="mt-6 pt-4 border-t border-[#E2E8DF] flex items-center gap-2 text-xs font-medium text-[#5F6F65]">
@@ -671,9 +750,13 @@ export function HomePage() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#C9DABF] text-[#1C231F] font-serif text-xl font-bold mb-5">
                   3
                 </div>
-                <h3 className="text-lg font-bold text-[#1C231F]">Instant Confirmation</h3>
+                <h3 className="text-lg font-bold text-[#1C231F]">
+                  Instant Confirmation
+                </h3>
                 <p className="text-xs sm:text-sm text-[#5F6F65] mt-2 leading-relaxed">
-                  Provide brief intake details. Receive your appointment pass, calendar invite (.ics), and clinic check-in instructions in under 60s.
+                  Provide brief intake details. Receive your appointment pass,
+                  calendar invite (.ics), and clinic check-in instructions in
+                  under 60s.
                 </p>
               </div>
               <div className="mt-6 pt-4 border-t border-[#E2E8DF] flex items-center gap-2 text-xs font-medium text-[#5F6F65]">
@@ -697,30 +780,37 @@ export function HomePage() {
             Affiliated Medical Centers
           </h2>
           <p className="text-sm text-[#5F6F65] mt-1">
-            Care delivered across premier medical facilities and certified clinics.
+            Care delivered across premier medical facilities and certified
+            clinics.
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {Object.values(CLINICS).slice(0, 3).map((clinic) => (
-            <div
-              key={clinic.id}
-              className="rounded-2xl border border-[#E2E8DF] bg-white p-6 hover:border-[#9CA986] transition-all"
-            >
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#F0F4ED] text-[#5F6F65] mb-4">
-                <Building2 className="h-5 w-5" />
+          {Object.values(CLINICS)
+            .slice(0, 3)
+            .map((clinic) => (
+              <div
+                key={clinic.id}
+                className="rounded-2xl border border-[#E2E8DF] bg-white p-6 hover:border-[#9CA986] transition-all"
+              >
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#F0F4ED] text-[#5F6F65] mb-4">
+                  <Building2 className="h-5 w-5" />
+                </div>
+                <h3 className="text-base font-bold text-[#1C231F]">
+                  {clinic.name}
+                </h3>
+                <p className="text-xs text-[#808D7C] mt-1 flex items-center gap-1.5">
+                  <MapPin className="h-3.5 w-3.5 shrink-0 text-[#9CA986]" />
+                  {clinic.address}, {clinic.city}, {clinic.state}
+                </p>
+                <div className="mt-4 pt-3 border-t border-[#E2E8DF] flex items-center justify-between text-xs text-[#5F6F65]">
+                  <span>Contact: {clinic.phone}</span>
+                  <span className="font-semibold text-[#5F6F65]">
+                    Open 8am-6pm
+                  </span>
+                </div>
               </div>
-              <h3 className="text-base font-bold text-[#1C231F]">{clinic.name}</h3>
-              <p className="text-xs text-[#808D7C] mt-1 flex items-center gap-1.5">
-                <MapPin className="h-3.5 w-3.5 shrink-0 text-[#9CA986]" />
-                {clinic.address}, {clinic.city}, {clinic.state}
-              </p>
-              <div className="mt-4 pt-3 border-t border-[#E2E8DF] flex items-center justify-between text-xs text-[#5F6F65]">
-                <span>Contact: {clinic.phone}</span>
-                <span className="font-semibold text-[#5F6F65]">Open 8am-6pm</span>
-              </div>
-            </div>
-          ))}
+            ))}
         </div>
       </section>
 
@@ -737,7 +827,8 @@ export function HomePage() {
               What Patients Are Saying
             </h2>
             <p className="text-sm text-[#5F6F65] mt-1">
-              Real feedback from patients who booked their consultations through MediBook.
+              Real feedback from patients who booked their consultations through
+              MediBook.
             </p>
           </div>
         </div>
@@ -751,7 +842,10 @@ export function HomePage() {
               <div>
                 <div className="flex items-center gap-1 mb-3">
                   {[...Array(rev.rating)].map((_, i) => (
-                    <Star key={i} className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
+                    <Star
+                      key={i}
+                      className="h-3.5 w-3.5 fill-amber-400 text-amber-400"
+                    />
                   ))}
                 </div>
                 <p className="text-xs text-[#2B352F] leading-relaxed italic">
@@ -761,7 +855,9 @@ export function HomePage() {
 
               <div className="mt-4 pt-3 border-t border-[#E2E8DF] flex items-center justify-between">
                 <div>
-                  <h4 className="text-xs font-bold text-[#1C231F]">{rev.author}</h4>
+                  <h4 className="text-xs font-bold text-[#1C231F]">
+                    {rev.author}
+                  </h4>
                   <span className="text-[10px] text-[#808D7C]">{rev.date}</span>
                 </div>
                 {rev.waitDurationMinutes && (
@@ -784,7 +880,11 @@ export function HomePage() {
           <div className="absolute bottom-0 left-0 -ml-16 -mb-16 h-64 w-64 rounded-full bg-[#9CA986]/30 blur-2xl pointer-events-none" />
 
           <div className="relative z-10 max-w-2xl">
-            <Badge variant="sage" size="md" className="mb-4 bg-[#C9DABF] text-[#1C231F]">
+            <Badge
+              variant="sage"
+              size="md"
+              className="mb-4 bg-[#C9DABF] text-[#1C231F]"
+            >
               Ready for your appointment?
             </Badge>
 
@@ -793,14 +893,15 @@ export function HomePage() {
             </h2>
 
             <p className="mt-4 text-sm sm:text-base text-[#E7EFE3] leading-relaxed">
-              Find top doctors in your area, select your preferred time slot, and receive immediate booking confirmation.
+              Find top doctors in your area, select your preferred time slot,
+              and receive immediate booking confirmation.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Button
                 size="lg"
                 variant="sage"
-                onClick={() => navigate({ path: '/search' })}
+                onClick={() => navigate({ path: "/search" })}
                 leftIcon={<Search className="h-5 w-5" />}
               >
                 Find a Doctor Now
@@ -810,7 +911,9 @@ export function HomePage() {
                 size="lg"
                 variant="outline"
                 className="bg-transparent text-white border-white/60 hover:bg-white/10 hover:text-white"
-                onClick={() => navigate({ path: '/dashboard/appointments', tab: 'upcoming' })}
+                onClick={() =>
+                  navigate({ path: "/dashboard/appointments", tab: "upcoming" })
+                }
               >
                 Manage My Bookings
               </Button>
