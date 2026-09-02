@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useUIStore } from './stores/useUIStore';
 import { AppLayout } from './components/layout/AppLayout';
@@ -22,6 +22,35 @@ import { Search, Calendar, FileText } from 'lucide-react';
 export default function App() {
   const { currentRoute, navigate } = useUIStore();
   const { appointments } = useAppointmentStore();
+
+  useEffect(() => {
+    if (!window.history.state?.medibookRoute) {
+      window.history.replaceState(
+        {
+          ...window.history.state,
+          medibookRoute: currentRoute,
+          medibookHistory: [],
+        },
+        '',
+        window.location.href,
+      );
+    }
+
+    const handlePopState = (event: PopStateEvent) => {
+      const route = event.state?.medibookRoute;
+      if (!route) return;
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      useUIStore.setState({
+        currentRoute: route,
+        routeHistory: event.state.medibookHistory || [],
+        isMobileMenuOpen: false,
+      });
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, [currentRoute]);
 
   const renderCurrentPage = () => {
     switch (currentRoute.path) {

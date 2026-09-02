@@ -11,6 +11,7 @@ export interface ToastMessage {
 
 interface UIState {
   currentRoute: AppRoute;
+  routeHistory: AppRoute[];
   selectedTimezone: string;
   isMobileMenuOpen: boolean;
   toasts: ToastMessage[];
@@ -18,6 +19,7 @@ interface UIState {
   
   // Actions
   navigate: (route: AppRoute) => void;
+  goBack: () => void;
   setTimezone: (tz: string) => void;
   toggleMobileMenu: (open?: boolean) => void;
   addToast: (toast: Omit<ToastMessage, 'id'>) => void;
@@ -40,16 +42,39 @@ export const AVAILABLE_TIMEZONES = [
 
 export const COMMON_TIMEZONES = AVAILABLE_TIMEZONES;
 
-export const useUIStore = create<UIState>((set) => ({
+export const useUIStore = create<UIState>((set, get) => ({
   currentRoute: { path: '/' },
+  routeHistory: [],
   selectedTimezone: 'Asia/Dhaka',
   isMobileMenuOpen: false,
   toasts: [],
   savedDoctorIds: ['doc-1'], // Seed Prof. Dr. M. A. Hashem
 
   navigate: (route: AppRoute) => {
+    const { currentRoute, routeHistory } = get();
+    if (JSON.stringify(currentRoute) === JSON.stringify(route)) return;
+
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    set({ currentRoute: route, isMobileMenuOpen: false });
+    const nextHistory = [...routeHistory, currentRoute].slice(-20);
+    window.history.pushState(
+      {
+        ...window.history.state,
+        medibookRoute: route,
+        medibookHistory: nextHistory,
+      },
+      '',
+      window.location.href,
+    );
+    set({
+      currentRoute: route,
+      routeHistory: nextHistory,
+      isMobileMenuOpen: false,
+    });
+  },
+
+  goBack: () => {
+    const { routeHistory } = get();
+    if (routeHistory.length > 0) window.history.back();
   },
 
   setTimezone: (selectedTimezone: string) => set({ selectedTimezone }),
