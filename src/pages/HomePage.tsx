@@ -286,219 +286,6 @@ export function HomePage() {
               </p>
             </div>
           </div>
-
-          {/* Phase 9 Emergency Care & Digital Health Quick Access Grid */}
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
-            {/* Emergency & Ambulance Dispatch */}
-            <button
-              type="button"
-              onClick={() => navigate({ path: "/emergency" })}
-              className="group flex items-start gap-4 rounded-3xl border-2 border-red-200 bg-red-50/70 p-5 text-left transition-all hover:bg-red-50 hover:border-red-400 hover:shadow-lg cursor-pointer"
-            >
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-red-600 text-white shrink-0 group-hover:scale-105 transition-transform shadow-md">
-                <PhoneCall className="h-6 w-6 animate-pulse" />
-              </div>
-              <div className="space-y-1">
-                <div className="flex items-center gap-2">
-                  <span className="font-bold text-sm text-red-950">
-                    24/7 SOS & Ambulance
-                  </span>
-                  <span className="flex h-2 w-2 rounded-full bg-red-600 animate-ping" />
-                </div>
-                <p className="text-xs text-red-800 leading-snug">
-                  GPS-tracked ICU ambulances, 999 hotline, blood donor registry,
-                  and live hospital ICU bed tracker.
-                </p>
-                <span className="inline-flex items-center gap-1 text-[11px] font-bold text-red-700 pt-1 group-hover:underline">
-                  Emergency Hub <ArrowRight className="h-3 w-3" />
-                </span>
-              </div>
-            </button>
-
-            {/* Instant Telehealth Video Room */}
-            <button
-              type="button"
-              onClick={() => navigate({ path: "/telehealth" })}
-              className="group flex items-start gap-4 rounded-3xl border border-[#C4CFC0] bg-white p-5 text-left transition-all hover:border-[#5F6F65] hover:shadow-lg cursor-pointer"
-            >
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-600 text-white shrink-0 group-hover:scale-105 transition-transform shadow-md">
-                <Video className="h-6 w-6" />
-              </div>
-              <div className="space-y-1">
-                <div className="flex items-center gap-2">
-                  <span className="font-bold text-sm text-[#1C231F]">
-                    Live Video Consultation
-                  </span>
-                  <Badge
-                    variant="outline"
-                    className="text-[10px] text-blue-700 border-blue-300 bg-blue-50"
-                  >
-                    HD Telehealth
-                  </Badge>
-                </div>
-                <p className="text-xs text-[#5F6F65] leading-snug">
-                  Real-time encrypted video room with in-call vitals monitoring,
-                  doctor chat, and live e-Rx writing.
-                </p>
-                <span className="inline-flex items-center gap-1 text-[11px] font-bold text-blue-700 pt-1 group-hover:underline">
-                  Launch Video Suite <ArrowRight className="h-3 w-3" />
-                </span>
-              </div>
-            </button>
-
-            {/* Personal Health Vault & Vitals */}
-            <button
-              type="button"
-              onClick={() => navigate({ path: "/health-records" })}
-              className="group flex items-start gap-4 rounded-3xl border border-[#C4CFC0] bg-white p-5 text-left transition-all hover:border-[#5F6F65] hover:shadow-lg cursor-pointer"
-            >
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#5F6F65] text-white shrink-0 group-hover:scale-105 transition-transform shadow-md">
-                <Activity className="h-6 w-6" />
-              </div>
-              <div className="space-y-1">
-                <div className="flex items-center gap-2">
-                  <span className="font-bold text-sm text-[#1C231F]">
-                    Patient Health Vault
-                  </span>
-                  <Badge
-                    variant="outline"
-                    className="text-[10px] text-emerald-800 border-emerald-300 bg-emerald-50"
-                  >
-                    EHR
-                  </Badge>
-                </div>
-                <p className="text-xs text-[#5F6F65] leading-snug">
-                  Track BP & glucose biomarkers, archive diagnostic lab PDFs,
-                  and generate your Emergency Medical ID.
-                </p>
-                <span className="inline-flex items-center gap-1 text-[11px] font-bold text-[#5F6F65] pt-1 group-hover:underline">
-                  Open Health Vault <ArrowRight className="h-3 w-3" />
-                </span>
-              </div>
-            </button>
-          </div>
-
-          {/* Phase 10 Smart Diagnostic, Queue & Insurance Services Grid */}
-          <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
-            {/* 1. Diagnostic Lab Tests */}
-            <button
-              type="button"
-              onClick={() => navigate({ path: "/lab-tests" })}
-              className="group flex flex-col justify-between rounded-3xl border border-[#C4CFC0] bg-white p-5 text-left transition-all hover:border-[#5F6F65] hover:shadow-md cursor-pointer"
-            >
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-600 text-white shadow-xs group-hover:scale-105 transition-transform">
-                    <TestTube className="h-5 w-5" />
-                  </div>
-                  <Badge
-                    variant="outline"
-                    className="text-[10px] text-purple-700 border-purple-300 bg-purple-50"
-                  >
-                    Home Sample
-                  </Badge>
-                </div>
-                <h4 className="font-bold text-sm text-[#1C231F]">
-                  Diagnostic Lab Tests
-                </h4>
-                <p className="text-xs text-[#5F6F65] mt-1 leading-snug">
-                  Pathology packages from Popular, Ibn Sina & Labaid with home
-                  phlebotomist collection.
-                </p>
-              </div>
-              <span className="inline-flex items-center gap-1 text-[11px] font-bold text-purple-700 pt-3 group-hover:underline">
-                Explore Lab Tests <ArrowRight className="h-3 w-3" />
-              </span>
-            </button>
-
-            {/* 2. Live Chamber Queue Tracker */}
-            <button
-              type="button"
-              onClick={() => navigate({ path: "/chamber-tracker" })}
-              className="group flex flex-col justify-between rounded-3xl border border-[#C4CFC0] bg-white p-5 text-left transition-all hover:border-emerald-600 hover:shadow-md cursor-pointer"
-            >
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-700 text-white shadow-xs group-hover:scale-105 transition-transform">
-                    <Radio className="h-5 w-5" />
-                  </div>
-                  <span className="flex items-center gap-1 text-[10px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-600 animate-ping" />
-                    Live Serial
-                  </span>
-                </div>
-                <h4 className="font-bold text-sm text-[#1C231F]">
-                  Chamber Queue Tracker
-                </h4>
-                <p className="text-xs text-[#5F6F65] mt-1 leading-snug">
-                  Monitor your live OPD doctor token in real time with delay
-                  alerts and digital gate passes.
-                </p>
-              </div>
-              <span className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-800 pt-3 group-hover:underline">
-                Track Live Serial <ArrowRight className="h-3 w-3" />
-              </span>
-            </button>
-
-            {/* 3. Family Health Profiles */}
-            <button
-              type="button"
-              onClick={() => navigate({ path: "/family-profiles" })}
-              className="group flex flex-col justify-between rounded-3xl border border-[#C4CFC0] bg-white p-5 text-left transition-all hover:border-[#5F6F65] hover:shadow-md cursor-pointer"
-            >
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#5F6F65] text-white shadow-xs group-hover:scale-105 transition-transform">
-                    <Users className="h-5 w-5" />
-                  </div>
-                  <Badge variant="sage" size="sm" className="text-[10px]">
-                    Multi-Patient
-                  </Badge>
-                </div>
-                <h4 className="font-bold text-sm text-[#1C231F]">
-                  Family Health Profiles
-                </h4>
-                <p className="text-xs text-[#5F6F65] mt-1 leading-snug">
-                  Manage medical histories, chronic illnesses, and drug
-                  allergies for your parents & children.
-                </p>
-              </div>
-              <span className="inline-flex items-center gap-1 text-[11px] font-bold text-[#5F6F65] pt-3 group-hover:underline">
-                Manage Family <ArrowRight className="h-3 w-3" />
-              </span>
-            </button>
-
-            {/* 4. Health Insurance & Takaful */}
-            <button
-              type="button"
-              onClick={() => navigate({ path: "/insurance" })}
-              className="group flex flex-col justify-between rounded-3xl border border-[#C4CFC0] bg-white p-5 text-left transition-all hover:border-[#5F6F65] hover:shadow-md cursor-pointer"
-            >
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-700 text-white shadow-xs group-hover:scale-105 transition-transform">
-                    <ShieldCheck className="h-5 w-5" />
-                  </div>
-                  <Badge
-                    variant="outline"
-                    className="text-[10px] text-amber-800 border-amber-300 bg-amber-50"
-                  >
-                    Cashless OPD
-                  </Badge>
-                </div>
-                <h4 className="font-bold text-sm text-[#1C231F]">
-                  Insurance & Claims Hub
-                </h4>
-                <p className="text-xs text-[#5F6F65] mt-1 leading-snug">
-                  Check corporate policy limits and submit paperless medical
-                  reimbursement claims.
-                </p>
-              </div>
-              <span className="inline-flex items-center gap-1 text-[11px] font-bold text-amber-800 pt-3 group-hover:underline">
-                File Claims <ArrowRight className="h-3 w-3" />
-              </span>
-            </button>
-          </div>
         </div>
       </section>
 
@@ -768,6 +555,220 @@ export function HomePage() {
         </div>
       </section>
 
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Phase 9 Emergency Care & Digital Health Quick Access Grid */}
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
+          {/* Emergency & Ambulance Dispatch */}
+          <button
+            type="button"
+            onClick={() => navigate({ path: "/emergency" })}
+            className="group flex items-start gap-4 rounded-3xl border-2 border-red-200 bg-red-50/70 p-5 text-left transition-all hover:bg-red-50 hover:border-red-400 hover:shadow-lg cursor-pointer"
+          >
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-red-600 text-white shrink-0 group-hover:scale-105 transition-transform shadow-md">
+              <PhoneCall className="h-6 w-6 animate-pulse" />
+            </div>
+            <div className="space-y-1">
+              <div className="flex items-center gap-2">
+                <span className="font-bold text-sm text-red-950">
+                  24/7 SOS & Ambulance
+                </span>
+                <span className="flex h-2 w-2 rounded-full bg-red-600 animate-ping" />
+              </div>
+              <p className="text-xs text-red-800 leading-snug">
+                GPS-tracked ICU ambulances, 999 hotline, blood donor registry,
+                and live hospital ICU bed tracker.
+              </p>
+              <span className="inline-flex items-center gap-1 text-[11px] font-bold text-red-700 pt-1 group-hover:underline">
+                Emergency Hub <ArrowRight className="h-3 w-3" />
+              </span>
+            </div>
+          </button>
+
+          {/* Instant Telehealth Video Room */}
+          <button
+            type="button"
+            onClick={() => navigate({ path: "/telehealth" })}
+            className="group flex items-start gap-4 rounded-3xl border border-[#C4CFC0] bg-white p-5 text-left transition-all hover:border-[#5F6F65] hover:shadow-lg cursor-pointer"
+          >
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-600 text-white shrink-0 group-hover:scale-105 transition-transform shadow-md">
+              <Video className="h-6 w-6" />
+            </div>
+            <div className="space-y-1">
+              <div className="flex items-center gap-2">
+                <span className="font-bold text-sm text-[#1C231F]">
+                  Live Video Consultation
+                </span>
+                <Badge
+                  variant="outline"
+                  className="text-[10px] text-blue-700 border-blue-300 bg-blue-50"
+                >
+                  HD Telehealth
+                </Badge>
+              </div>
+              <p className="text-xs text-[#5F6F65] leading-snug">
+                Real-time encrypted video room with in-call vitals monitoring,
+                doctor chat, and live e-Rx writing.
+              </p>
+              <span className="inline-flex items-center gap-1 text-[11px] font-bold text-blue-700 pt-1 group-hover:underline">
+                Launch Video Suite <ArrowRight className="h-3 w-3" />
+              </span>
+            </div>
+          </button>
+
+          {/* Personal Health Vault & Vitals */}
+          <button
+            type="button"
+            onClick={() => navigate({ path: "/health-records" })}
+            className="group flex items-start gap-4 rounded-3xl border border-[#C4CFC0] bg-white p-5 text-left transition-all hover:border-[#5F6F65] hover:shadow-lg cursor-pointer"
+          >
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#5F6F65] text-white shrink-0 group-hover:scale-105 transition-transform shadow-md">
+              <Activity className="h-6 w-6" />
+            </div>
+            <div className="space-y-1">
+              <div className="flex items-center gap-2">
+                <span className="font-bold text-sm text-[#1C231F]">
+                  Patient Health Vault
+                </span>
+                <Badge
+                  variant="outline"
+                  className="text-[10px] text-emerald-800 border-emerald-300 bg-emerald-50"
+                >
+                  EHR
+                </Badge>
+              </div>
+              <p className="text-xs text-[#5F6F65] leading-snug">
+                Track BP & glucose biomarkers, archive diagnostic lab PDFs, and
+                generate your Emergency Medical ID.
+              </p>
+              <span className="inline-flex items-center gap-1 text-[11px] font-bold text-[#5F6F65] pt-1 group-hover:underline">
+                Open Health Vault <ArrowRight className="h-3 w-3" />
+              </span>
+            </div>
+          </button>
+        </div>
+
+        {/* Phase 10 Smart Diagnostic, Queue & Insurance Services Grid */}
+        <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
+          {/* 1. Diagnostic Lab Tests */}
+          <button
+            type="button"
+            onClick={() => navigate({ path: "/lab-tests" })}
+            className="group flex flex-col justify-between rounded-3xl border border-[#C4CFC0] bg-white p-5 text-left transition-all hover:border-[#5F6F65] hover:shadow-md cursor-pointer"
+          >
+            <div>
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-600 text-white shadow-xs group-hover:scale-105 transition-transform">
+                  <TestTube className="h-5 w-5" />
+                </div>
+                <Badge
+                  variant="outline"
+                  className="text-[10px] text-purple-700 border-purple-300 bg-purple-50"
+                >
+                  Home Sample
+                </Badge>
+              </div>
+              <h4 className="font-bold text-sm text-[#1C231F]">
+                Diagnostic Lab Tests
+              </h4>
+              <p className="text-xs text-[#5F6F65] mt-1 leading-snug">
+                Pathology packages from Popular, Ibn Sina & Labaid with home
+                phlebotomist collection.
+              </p>
+            </div>
+            <span className="inline-flex items-center gap-1 text-[11px] font-bold text-purple-700 pt-3 group-hover:underline">
+              Explore Lab Tests <ArrowRight className="h-3 w-3" />
+            </span>
+          </button>
+
+          {/* 2. Live Chamber Queue Tracker */}
+          <button
+            type="button"
+            onClick={() => navigate({ path: "/chamber-tracker" })}
+            className="group flex flex-col justify-between rounded-3xl border border-[#C4CFC0] bg-white p-5 text-left transition-all hover:border-emerald-600 hover:shadow-md cursor-pointer"
+          >
+            <div>
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-700 text-white shadow-xs group-hover:scale-105 transition-transform">
+                  <Radio className="h-5 w-5" />
+                </div>
+                <span className="flex items-center gap-1 text-[10px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-600 animate-ping" />
+                  Live Serial
+                </span>
+              </div>
+              <h4 className="font-bold text-sm text-[#1C231F]">
+                Chamber Queue Tracker
+              </h4>
+              <p className="text-xs text-[#5F6F65] mt-1 leading-snug">
+                Monitor your live OPD doctor token in real time with delay
+                alerts and digital gate passes.
+              </p>
+            </div>
+            <span className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-800 pt-3 group-hover:underline">
+              Track Live Serial <ArrowRight className="h-3 w-3" />
+            </span>
+          </button>
+
+          {/* 3. Family Health Profiles */}
+          <button
+            type="button"
+            onClick={() => navigate({ path: "/family-profiles" })}
+            className="group flex flex-col justify-between rounded-3xl border border-[#C4CFC0] bg-white p-5 text-left transition-all hover:border-[#5F6F65] hover:shadow-md cursor-pointer"
+          >
+            <div>
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#5F6F65] text-white shadow-xs group-hover:scale-105 transition-transform">
+                  <Users className="h-5 w-5" />
+                </div>
+                <Badge variant="sage" size="sm" className="text-[10px]">
+                  Multi-Patient
+                </Badge>
+              </div>
+              <h4 className="font-bold text-sm text-[#1C231F]">
+                Family Health Profiles
+              </h4>
+              <p className="text-xs text-[#5F6F65] mt-1 leading-snug">
+                Manage medical histories, chronic illnesses, and drug allergies
+                for your parents & children.
+              </p>
+            </div>
+            <span className="inline-flex items-center gap-1 text-[11px] font-bold text-[#5F6F65] pt-3 group-hover:underline">
+              Manage Family <ArrowRight className="h-3 w-3" />
+            </span>
+          </button>
+
+          {/* 4. Health Insurance & Takaful */}
+          <button
+            type="button"
+            onClick={() => navigate({ path: "/insurance" })}
+            className="group flex flex-col justify-between rounded-3xl border border-[#C4CFC0] bg-white p-5 text-left transition-all hover:border-[#5F6F65] hover:shadow-md cursor-pointer"
+          >
+            <div>
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-700 text-white shadow-xs group-hover:scale-105 transition-transform">
+                  <ShieldCheck className="h-5 w-5" />
+                </div>
+                <Badge
+                  variant="outline"
+                  className="text-[10px] text-amber-800 border-amber-300 bg-amber-50"
+                >
+                  Cashless OPD
+                </Badge>
+              </div>
+              <h4 className="font-bold text-sm text-[#1C231F]">
+                Insurance & Claims Hub
+              </h4>
+              <p className="text-xs text-[#5F6F65] mt-1 leading-snug">
+                Check corporate policy limits and submit paperless medical
+                reimbursement claims.
+              </p>
+            </div>
+            <span className="inline-flex items-center gap-1 text-[11px] font-bold text-amber-800 pt-3 group-hover:underline">
+              File Claims <ArrowRight className="h-3 w-3" />
+            </span>
+          </button>
+        </div>
+      </section>
       {/* ========================================================================= */}
       {/* 5. FEATURED HOSPITALS & PAVILIONS */}
       {/* ========================================================================= */}
