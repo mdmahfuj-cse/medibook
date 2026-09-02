@@ -101,42 +101,42 @@ These workflows use local state and mock data. They are not connected to real ho
 
 ## Main Routes
 
-| Route | Purpose |
-| --- | --- |
-| `/` | Home page and doctor search entry point |
-| `/search` | Search, filter, sort, and compare doctors |
-| `/doctors/:id` | Doctor profile, reviews, clinic, and booking entry |
-| `/book` | General booking flow |
-| `/book/:id` | Booking flow for a selected doctor |
-| `/appointments` | Appointment management |
-| `/dashboard/appointments` | Appointment management alias |
-| `/prescriptions` | Prescription management |
-| `/dashboard/prescriptions` | Prescription management alias |
-| `/telehealth` | Telehealth consultation room |
-| `/emergency` | Emergency support hub |
-| `/health-records` | Health records |
-| `/lab-tests` | Diagnostic laboratory tests |
-| `/chamber-tracker` | Live chamber queue tracking |
-| `/family-profiles` | Family member profiles |
-| `/insurance` | Insurance claims and coverage |
+| Route                      | Purpose                                            |
+| -------------------------- | -------------------------------------------------- |
+| `/`                        | Home page and doctor search entry point            |
+| `/search`                  | Search, filter, sort, and compare doctors          |
+| `/doctors/:id`             | Doctor profile, reviews, clinic, and booking entry |
+| `/book`                    | General booking flow                               |
+| `/book/:id`                | Booking flow for a selected doctor                 |
+| `/appointments`            | Appointment management                             |
+| `/dashboard/appointments`  | Appointment management alias                       |
+| `/prescriptions`           | Prescription management                            |
+| `/dashboard/prescriptions` | Prescription management alias                      |
+| `/telehealth`              | Telehealth consultation room                       |
+| `/emergency`               | Emergency support hub                              |
+| `/health-records`          | Health records                                     |
+| `/lab-tests`               | Diagnostic laboratory tests                        |
+| `/chamber-tracker`         | Live chamber queue tracking                        |
+| `/family-profiles`         | Family member profiles                             |
+| `/insurance`               | Insurance claims and coverage                      |
 
 Navigation is handled in application state by `useUIStore`. This prototype does not use a browser router; route objects are stored in Zustand and rendered by the switch in `src/App.tsx`.
 
 ## Functionality Summary
 
-| Area | Implemented behavior |
-| --- | --- |
-| Doctor discovery | Search, filters, sorting, pagination, doctor cards, favorites |
-| Doctor information | Qualifications, reviews, schedule, clinic, fee, telehealth status |
-| Booking | Four-step flow, time slot selection, patient details, promo codes, payment choice, confirmation |
-| Appointments | Create, list, inspect, cancel, reschedule, status tabs, reschedule history |
-| Prescriptions | Search, filter, details, medicine schedule tracking, pharmacy order creation |
-| Family care | Add, edit, remove, and switch patient profiles |
-| Health services | Records, labs, queue tracking, insurance, telehealth, emergency workflows |
-| Feedback | Toast notifications for user actions |
-| Preferences | Timezone selection and mobile navigation state |
-| Persistence | Local browser storage for appointments, prescriptions, medicine tracking, orders, and family profiles |
-| Accessibility foundation | Semantic controls, visible focus, readable type, reduced-motion support, labeled forms |
+| Area                     | Implemented behavior                                                                                  |
+| ------------------------ | ----------------------------------------------------------------------------------------------------- |
+| Doctor discovery         | Search, filters, sorting, pagination, doctor cards, favorites                                         |
+| Doctor information       | Qualifications, reviews, schedule, clinic, fee, telehealth status                                     |
+| Booking                  | Four-step flow, time slot selection, patient details, promo codes, payment choice, confirmation       |
+| Appointments             | Create, list, inspect, cancel, reschedule, status tabs, reschedule history                            |
+| Prescriptions            | Search, filter, details, medicine schedule tracking, pharmacy order creation                          |
+| Family care              | Add, edit, remove, and switch patient profiles                                                        |
+| Health services          | Records, labs, queue tracking, insurance, telehealth, emergency workflows                             |
+| Feedback                 | Toast notifications for user actions                                                                  |
+| Preferences              | Timezone selection and mobile navigation state                                                        |
+| Persistence              | Local browser storage for appointments, prescriptions, medicine tracking, orders, and family profiles |
+| Accessibility foundation | Semantic controls, visible focus, readable type, reduced-motion support, labeled forms                |
 
 ## System Architecture
 
