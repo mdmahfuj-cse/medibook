@@ -22,23 +22,7 @@ import {
   Heart,
   TestTube,
   Radio,
-} from "lucide-react";
-import { useUIStore } from "../stores/useUIStore";
-import { useSearchStore } from "../stores/useSearchStore";
-import { useBookingStore } from "../stores/useBookingStore";
-import {
-  MOCK_DOCTORS,
-  SPECIALTIES,
-  MOCK_REVIEWS,
-  CLINICS,
-} from "../data/mockDoctors";
-import { Button } from "../components/ui/Button";
-import { Badge } from "../components/ui/Badge";
-import { formatCurrency } from "../lib/utils";
-import { getSpecialtyIcon } from "../utils/specialtyIcons";
-import { HealthTipsCarousel } from "../components/home/HealthTipsCarousel";
-import { QuickActionsSection } from "../components/home/QuickActionsSection";
-
+} 
 export function HomePage() {
   const { navigate } = useUIStore();
   const { setQuery, setSpecialty, setLocation } = useSearchStore();
