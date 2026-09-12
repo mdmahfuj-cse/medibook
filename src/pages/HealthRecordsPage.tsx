@@ -134,7 +134,33 @@ export function HealthRecordsPage() {
     <div className="min-h-screen bg-[#F8FAF7] pb-24 pt-6">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-8">
         {/* Top Header */}
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#E2E8DF] pb-6">
+          <div>
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#5F6F65]">
+              <ShieldCheck className="h-4 w-4" />
+              <span>Digital Health Records & Personal Vault</span>
+            </div>
+            <h1 className="mt-1 font-serif text-3xl sm:text-4xl font-bold tracking-tight text-[#1C231F]">
+              Patient Health Vault & Vitals
+            </h1>
+            <p className="mt-1 text-sm text-[#5F6F65]">
+              Track clinical vitals over time, archive lab reports, and manage your emergency medical ID.
+            </p>
+          </div>
 
+          {/* Quick Profile Summary Badge */}
+          <div className="flex items-center gap-3 bg-white p-3 rounded-2xl border border-[#C4CFC0] shadow-xs">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#5F6F65] text-white font-bold">
+              {medicalProfile.bloodGroup}
+            </div>
+            <div>
+              <span className="font-bold text-xs text-[#1C231F] block">{medicalProfile.fullName}</span>
+              <span className="text-[11px] text-[#5F6F65]">
+                {medicalProfile.gender}, {new Date().getFullYear() - Number(medicalProfile.dateOfBirth.split('-')[0])} Yrs • BMI 24.2
+              </span>
+            </div>
+          </div>
+        </div>
 
         {/* Navigation Tabs */}
         <div className="flex overflow-x-auto no-scrollbar gap-2 border-b border-[#E2E8DF] pb-2">
